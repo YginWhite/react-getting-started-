@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import Table from './Table';
 
 class App extends Component {
-	render() {
-		const links = [
+	state = {
+		links: [
 			{
 				topic: 'React',
 				link: 'www.taniarascia.com/getting-started-with-react',
@@ -15,8 +15,11 @@ class App extends Component {
 				link: 'www.native-english.ru/grammar/english-tenses',
 				description: 'Tenses in English. Table of English tenses.'
 			}
-		];
+		]
+	}
 
+	render() {
+		const { links } = this.state;
 		return (
 			<div className="container">
 			    <Table linkData={links}/>

@@ -18,11 +18,21 @@ class App extends Component {
 		]
 	}
 
+	removeLink = (index) => {
+		const { links } = this.state;
+
+		this.setState({
+			links: links.filter((item, i) => {
+				return i !== index;
+			})
+		});
+	}
+
 	render() {
 		const { links } = this.state;
 		return (
 			<div className="container">
-			    <Table linkData={links}/>
+			    <Table linkData={links} removeLink={this.removeLink}/>
 			</div>
 		);
 	}

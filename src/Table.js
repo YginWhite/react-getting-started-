@@ -7,6 +7,7 @@ const TableHeader = () => {
 				<th>Topic</th>
 				<th>Link</th>
 				<th>Description</th>
+				<th>Remove</th>
 			</tr>
 		</thead>
 	);
@@ -19,6 +20,9 @@ const TableBody = (props) => {
 				<td>{row.topic}</td>
 				<td>{row.link}</td>
 				<td>{row.description}</td>
+				<td>
+					<button onClick={() => {props.removeLink(index)}}>Delete</button>
+				</td>
 			</tr>
 		);
 	});
@@ -31,13 +35,13 @@ const TableBody = (props) => {
 
 class Table extends Component {
 	render() {
-		const { linkData } = this.props;
+		const { linkData, removeLink } = this.props;
 
 		return (
 			<div>
 			    <table>
 			    	<TableHeader />
-			    	<TableBody linkData={linkData}/>
+			    	<TableBody linkData={linkData} removeLink={removeLink}/>
 			    </table>
 			</div>
 		);

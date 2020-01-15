@@ -29,12 +29,18 @@ class App extends Component {
 		});
 	}
 
+	handleSubmit = (link) => {
+		this.setState({
+			links: [...this.state.links, link]
+		});
+	}
+
 	render() {
 		const { links } = this.state;
 		return (
 			<div className="container">
-			    <Table linkData={links} removeLink={this.removeLink}/>
-			    <Form />
+			    <Table linkData={links} removeLink={this.removeLink} />
+			    <Form handleSubmit={this.handleSubmit} />
 			</div>
 		);
 	}

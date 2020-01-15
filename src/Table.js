@@ -12,19 +12,19 @@ const TableHeader = () => {
 	);
 }
 
-const TableBody = () => {
+const TableBody = (props) => {
+	const rows = props.linkData.map((row, index) => {
+		return (
+			<tr key={index}>
+				<td>{row.topic}</td>
+				<td>{row.link}</td>
+				<td>{row.description}</td>
+			</tr>
+		);
+	});
 	return (
 		<tbody>
-			<tr>
-				<td>React</td>
-				<td>https://www.taniarascia.com/getting-started-with-react</td>
-				<td>Getting Started with React - An Overview and Walkthrough Tutorial</td>
-			</tr>
-			<tr>
-				<td>English</td>
-				<td>https://www.native-english.ru/grammar/english-tenses</td>
-				<td>Tenses in English. Table of English tenses.</td>
-			</tr>
+			{rows}
 		</tbody>
 	);
 }

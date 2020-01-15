@@ -31,11 +31,13 @@ const TableBody = () => {
 
 class Table extends Component {
 	render() {
+		const { linkData } = this.props;
+
 		return (
 			<div>
 			    <table>
 			    	<TableHeader />
-			    	<TableBody />
+			    	<TableBody linkData={linkData}/>
 			    </table>
 			</div>
 		);
